@@ -20,6 +20,7 @@ namespace Data
         protected DbDataReader dbDataReader { get; set; } = null;
         protected DbCommand dbCommand { get; set; } = null;
         private string Connection;
+
         protected string ConnectionName="Connection";
 
         #region Constructors
@@ -31,7 +32,7 @@ namespace Data
             builder.SetBasePath(Directory.GetCurrentDirectory());
             builder.AddJsonFile("appsettings.json");
             Configuration = builder.Build();
-            Connection = Configuration[$"ConnectionStrings:{ConnectionName}"];
+            Connection = Configuration[$"ConnectionStrings:{ConnectionName}"] ?? string.Empty;
             try
             {
                 this.dbConnection = new SqlConnection(Connection);
