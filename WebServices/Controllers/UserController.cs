@@ -110,8 +110,7 @@ namespace Controllers
                 ESE.User result = bUser.Search(id);
                 if (result != null && result.Id.Length > 0)
                 {
-                    result.Action = ENT.Action.Delete;
-                    if (bUser.Save(result))
+                    if (bUser.Delete(result))
                     {
                         return NoContent();
                     }

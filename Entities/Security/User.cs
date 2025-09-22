@@ -8,7 +8,7 @@ namespace Entities.Security
     [Table("users", Schema = "security")]
     public class User : Base
     {
-        [Column("id"), Required]
+        [Column("id"), Required,Key]
         [StringLength(50)]
         public string Id { get; set; }
 

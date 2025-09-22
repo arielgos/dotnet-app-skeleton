@@ -27,6 +27,11 @@ namespace Data.Security
             return BEUser;
         }
 
+        public bool Delete(ESE.User obj)
+        {
+            return base.Delete(obj);
+        }
+
         public bool Save(ESE.User obj)
         {
             string query = "";

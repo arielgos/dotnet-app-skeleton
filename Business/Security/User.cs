@@ -49,6 +49,20 @@ namespace Business.Security
             }
         }
 
+        public bool Delete(ESE.User user)
+        {
+            try
+            {
+                DSE.User dal = new DSE.User();
+                return dal.Delete<ESE.User>(user);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                throw ex;
+            }
+        }
+
         public ESE.User Login(string username, string password)
         {
             try

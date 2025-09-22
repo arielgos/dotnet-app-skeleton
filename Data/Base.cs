@@ -350,6 +350,8 @@ namespace Data
 
         }
 
+       
+
         #endregion Methods
 
         #region PublicMethods
@@ -365,6 +367,20 @@ namespace Data
                 log.Error(ex);
                 throw new Exception(ex.Message, ex.InnerException);
             }
+        }
+
+        public bool Delete<T>(T obj) where T:Entities.Base
+        {
+            var type = typeof(T);
+            var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                            .ToList();
+
+            foreach (var prop in props)
+            {
+                Console.WriteLine($"{prop.Name} = {prop.GetValue(obj)}");
+            }
+
+            return false;
         }
 
         #endregion PublicMethods  
